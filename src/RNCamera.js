@@ -652,6 +652,10 @@ export default class Camera extends React.Component<PropsType, StateType> {
     return CameraManager.isRecording(this._cameraHandle);
   }
 
+  hasTorch() {
+    return CameraManager.hasTorch();
+  }
+
   resumePreview() {
     CameraManager.resumePreview(this._cameraHandle);
   }
