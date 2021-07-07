@@ -354,6 +354,9 @@ class Camera1 extends CameraViewImpl implements MediaRecorder.OnInfoListener,
             @Override
             public void run() {
                 synchronized(this){
+                    if(mCamera == null){
+                        start();
+                    }
                     mShowingPreview = true;
                     startCameraPreview();
                 }
@@ -369,6 +372,7 @@ class Camera1 extends CameraViewImpl implements MediaRecorder.OnInfoListener,
 
             if(mCamera != null){
                 mCamera.stopPreview();
+                releaseCamera();
             }
         }
     }
